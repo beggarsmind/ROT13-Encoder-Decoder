@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple web app to encode and decode text using the ROT13 cipher."
+    />
+    <title>ROT13 Encoder/Decoder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+  
+
+    <div class="header-container">
+      <h2>ROT13 Encoder & Decoder</h2>
+    </div>
+    <div class="container">
+      <form>
+        <textarea
+          id="inputText"
+          placeholder="Enter Your text Here..."
+          aria-label="Input text area for entering the text to encode or decode"
+        ></textarea>
+        <button
+          type="button"
+          onclick="convertROT13()"
+          aria-label="Convert text to ROT13 or decode ROT13"
+        >
+          Convert
+        </button>
+      </form>
+      <div class="textarea-container">
+        <textarea
+          id="outputText"
+          readonly
+          placeholder="Output will appear here..."
+          aria-label="Output text area showing the encoded or decoded result"
+        ></textarea>
+        <button
+          id="copyButton"
+          onclick="copyToClipboard()"
+          aria-label="Copy the output text to clipboard"
+        >
+          Copy
+        </button>
+      </div>
+      <footer>
+        <p>
+          Re-Designed By Ranjithkumar.R (<a
+            href="https://github.com/beggarsmind"
+            >Beggar's Mind</a
+          >)
+        </p>
+      </footer>
+    </div>
+
+    <!-- Info Button -->
+    <button
+      type="button"
+      id="infoButton"
+      onclick="openModal()"
+      aria-label="Show more information about ROT13 encryption"
+    >
+      ROT13 Means?
+    </button>
+
+    <!-- Popup Modal -->
+    <div id="infoModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>What is ROT13 Encryption?</h3>
+        <p>
+          <p>
+            ROT13 (short for rotate by 13 places) is a simple cipher where each letter of the alphabet is replaced by the letter 13 places ahead of it. It is a specific case of the Caesar cipher, where the shift value is fixed at 13.
+          </p>
+          <p>
+            <strong>How ROT13 Works</strong>
+          </p>
+          <p>
+            ROT13 works on both uppercase and lowercase letters. The alphabet is split into two halves, and letters are shifted by 13 positions. <br><b>For example:</b>
+            <br>
+            A → N, B → O,C → P, etc.<br>
+            N → A, O → B,P → C, etc.<br>
+            When you apply ROT13 to a text, it is encrypted. If you apply ROT13 to the same text again, it decrypts back to the original text. This is because 13 + 13 = 26 (which is the length of the alphabet), so applying ROT13 twice results in the original text.
+          </p>
+          <p>
+            <strong>Encryption Example:</strong><br>
+            Original Text:<b>Hello</b> <br>
+            Applying ROT13:<br>
+            H → U<br>
+            E → R<br>
+            L → Y<br>
+            L → Y<br>
+            O → B<br>
+            Resulting Encrypted Text: <b>Uryyb</b>
+          </p>
+          <hr>
+
+          <h3>What is ROT13 Decryption?</h3>
+          <p>
+            ROT13 (short for rotate by 13 places) is a simple cipher where each letter of the alphabet is replaced by the letter 13 places ahead of it. It is a specific case of the Caesar cipher, where the shift value is fixed at 13.
+          </p>
+          <p>
+            <strong>How ROT13 Decryption Works</strong>
+          </p>
+          <p>
+            ROT13 works on both uppercase and lowercase letters. The alphabet is split into two halves, and letters are shifted by 13 positions.<br> <b>For example:</b>
+           <br> A → N, B → O, C → P, etc.<br>
+            N → A, O → B, P → C, etc.<br>
+            When you apply ROT13 to an encrypted text, it is decrypted. If you apply ROT13 to the same text again, it encrypts back to the original text. This is because 13 + 13 = 26 (which is the length of the alphabet), so applying ROT13 twice results in the original text.
+          </p>
+          <p>
+         
+            <strong>Decryption Example:</strong><br>
+            Encrypted Text: <b>Uryyb</b><br>
+            Applying ROT13:<br>
+            U → H<br>
+            R → E<br>
+            Y → L<br>
+            Y → L<br>
+            B → O<br>
+            Resulting Decrypted Text: <b>Hello</b>
+          </p>
+          
+        </p>
+
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
